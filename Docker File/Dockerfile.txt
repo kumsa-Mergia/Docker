@@ -1,0 +1,37 @@
+# First Step is Base Image
+# tHE FROM command specifies the base image to use when creating a new image
+# The syntax is FROM <image>:<tag> and <tag> is optional
+
+FROM ubuntu
+
+# Second Step is Setting a Maintainer label
+# To Set a maintainer label in Dockerfile you use the 'LABEL' instruction alllows you to add metadata to your Docker image, including information about the maintainer
+
+LABEL maintainer="kumsamergia <kumsamergia@gmail.com>"
+
+# Third Step is install Apache Web Server:
+# use the RUN command to install Apache (httpd)
+# The 'RUN' command executes ccommand during the image build process
+
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    apt-get clean
+
+# Forth Step Copy The HTML file
+
+COPY index.html /var/www/html/
+COPY assets/ /var/www/html/assets/
+COPY mediaqueries.css /var/www/html/
+COPY script.js /var/www/html/  
+COPY style.css /var/www/html/
+
+# Fivth Step Set Entrypoint
+# Start Apache in the Foreground
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+# Expose port 80 for the web Server
+
+EXPOSE 80
+
+
+# next build and run the docker
