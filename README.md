@@ -8,8 +8,7 @@ Welcome to the Docker repository! This repository contains basic Docker examples
 - [Getting Started](#getting-started)
 - [Basic Commands](#basic-commands)
 - [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Overview
 
